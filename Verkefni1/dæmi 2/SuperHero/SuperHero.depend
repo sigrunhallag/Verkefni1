@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1511876233 source:c:\háskólinn í reykjavík\tölvunarfræði bsc\1. Önn\t-113-vln1 verklegt námskeið 1\verkefni\superhero\main.cpp
+	<iostream>
+	"Superhero.h"
+	<fstream>
+
+1511876257 source:c:\háskólinn í reykjavík\tölvunarfræði bsc\1. Önn\t-113-vln1 verklegt námskeið 1\verkefni\superhero\src\superhero.cpp
+	"Superhero.h"
+
+1511876212 c:\háskólinn í reykjavík\tölvunarfræði bsc\1. Önn\t-113-vln1 verklegt námskeið 1\verkefni\superhero\include\superhero.h
+	<cstring>
+	<iostream>
+
