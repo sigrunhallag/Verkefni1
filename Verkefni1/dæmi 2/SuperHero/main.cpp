@@ -1,5 +1,5 @@
-#include <iostream>
 #include "Superhero.h"
+#include <iostream>
 #include <fstream>
 using namespace std;
 
@@ -14,7 +14,7 @@ void createSomeHeroes()
         fout << data;
         fout.close();
     }
-
+    
     string str;
     ifstream fin;
 
@@ -28,13 +28,13 @@ void createSomeHeroes()
         }
         fin.close();
     }
-
 }
+
+
 int main()
 {
     cout << "Enter hero: ";
     createSomeHeroes();
-
     cout << endl;
 
     return 0;

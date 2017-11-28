@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int main()
 {
     string str;
@@ -14,38 +15,23 @@ int main()
     {
         int counter = 0;
 
-        while(counter < 10)
+        while (!fin.eof() && counter < 10)
         {
             getline(fin, str);
             cout << str << endl;
             counter++;
-        }
 
-        char yN;
-
-
-        counter = 0;
-        while(!(yN == 'n' || yN == 'N' || fin.eof()))
-        {
-            cout << "Continue? (y/n)" << endl;
-            cin >> yN;
-
-            int upper = 20;
-            if(yN == 'y' || yN == 'Y')
+            if (counter == 10)
             {
-                counter = upper - 10;
-                while(counter < upper && !fin.eof())
+                char yN;
+                cout << "Continue (y/n): ";
+                cin >> yN;
+                if (yN == 'y' || yN == 'Y')
                 {
-                    getline(fin, str);
-                    cout << str << endl;
-                    counter++;
+                    counter = 0;
                 }
-
-                upper =+ 10;
-
             }
         }
-
         fin.close();
     }
     else
