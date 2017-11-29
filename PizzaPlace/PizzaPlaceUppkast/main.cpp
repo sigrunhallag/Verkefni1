@@ -10,11 +10,13 @@ int main()
     drawMenu();
     pickMenuItem(select);
 
+    if (select = 1)
+    {
+        Management manager;
 
-    Management manager;
-
-    cin >> manager;
-    cout << manager;
+        cin >> manager;
+        cout << manager;
+    }
 
 
 
@@ -69,3 +71,4 @@ void drawMenu()
     cout << "         Please login by typing m/s/k/d        " << endl;
     cout << "m/s/k/d: ";
 }
+

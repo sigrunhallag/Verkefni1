@@ -8,22 +8,27 @@ Management::Management()
     topping = 0;
 }
 
-Management::Management(int d, int c, int t)
+Management::Management(int d, int s, int c, int t)
 {
     dough = d;
+    sauce = s;
     cheese = c;
     topping = t;
 }
 
+/*Management::editDoughTypes()
+{
+    fin.open("doughTypes.txt")
+}*/
 
 istream& operator  >> (istream& in, Management& management)
 {
-    in >> management.dough >> management.cheese >> management.topping;
+    in >> management.dough >> management.sauce >> management.cheese >> management.topping;
     return in;
 }
 
 ostream& operator << (ostream& out, const Management& management)
 {
-    out << management.dough << management.cheese << management.topping << endl;
+    out << management.dough << management.sauce << management.cheese << management.topping << endl;
     return out;
 }
