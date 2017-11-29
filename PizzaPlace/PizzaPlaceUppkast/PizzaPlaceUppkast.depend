@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1511935793 source:c:\users\johan\onedrive\skjöl\codeblocks\pizzaplaceuppkast\src\management.cpp
+	"Management.h"
+
+1511935306 c:\users\johan\onedrive\skjöl\codeblocks\pizzaplaceuppkast\include\management.h
+
+1511936817 source:c:\users\johan\onedrive\skjöl\codeblocks\pizzaplaceuppkast\main.cpp
+	<iostream>
+
