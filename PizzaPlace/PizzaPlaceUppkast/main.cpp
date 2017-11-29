@@ -1,4 +1,4 @@
-#include <iostream>
+#include "Management.h"
 
 using namespace std;
 void drawMenu();
@@ -10,10 +10,11 @@ int main()
     drawMenu();
     pickMenuItem(select);
 
-    if (select == 1)
-    {
-        Management manager;
-    }
+
+    Management manager;
+
+    cin >> manager;
+    cout << manager;
 
 
 
@@ -25,31 +26,33 @@ int pickMenuItem(int& select)
     char pick;
     cin >> pick;
 
-    while(!(pick == 'm' | pick == 'M' | pick == 's' | pick == 'S' | pick == 'k' | pick == 'K' | pick == 'd' | pick == 'D' ))
+    while(!((pick == 'm') | (pick == 'M') | (pick == 's') | (pick == 'S') | (pick == 'k') | (pick == 'K') | (pick == 'd') | (pick == 'D')))
     {
         cout << "Please pick m/s/k/d: ";
         cin >> pick;
     }
-    if (pick == 'm' | pick == 'M')
+    if ((pick == 'm') | (pick == 'M'))
     {
         select = 1;
         return select;
     }
-    else if (pick == 's' | pick == 'S')
+    else if ((pick == 's') | (pick == 'S'))
     {
         select = 2;
         return select;
     }
-    else if (pick == 'k' | pick == 'K')
+    else if ((pick == 'k') | (pick == 'K'))
     {
         select = 3;
         return select;
     }
-    else if (pick == 'd' | pick == 'D')
+    else if ((pick == 'd') | (pick == 'D'))
     {
         select = 4;
         return select;
     }
+    else
+    return 0;
 }
 void drawMenu()
 {
