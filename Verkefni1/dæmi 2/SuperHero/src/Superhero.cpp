@@ -1,6 +1,7 @@
 #include "Superhero.h"
 #include <iostream>
 #include <cstring>
+#include <fstream>
 using namespace std;
 
 Superhero::Superhero()
@@ -31,6 +32,7 @@ void Superhero::set_power(char power)
 }
 ostream& operator << (ostream& out, const Superhero& superhero)
 {
+
     out << superhero.name;
     out << " (" << superhero.age << "): ";
     if(superhero.power == 'f')
@@ -65,4 +67,15 @@ istream& operator >> (istream& in, Superhero& superhero)
 
     return in;
 }
-
+void Superhero::save_superhero(Superhero hero)
+{
+    ofstream fout;
+    fout.open("textfile.txt", ios::app);
+    if(fout.is_open())
+    {
+        fout << hero.name << ";";
+        fout << hero.age << ";";
+        fout << hero.power << endl;
+        fout.close();
+    }
+}

@@ -1,41 +1,81 @@
-#include "Superhero.h"
 #include <iostream>
+#include "Superhero.h"
 #include <fstream>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
-void createSomeHeroes()
-{
-    ofstream fout;
-    fout.open("textfile.txt");
-    Superhero data;
-    cin >> data;
-    if(fout.is_open())
-    {
-        fout << data;
-        fout.close();
-    }
-    
-    string str;
-    ifstream fin;
+void get_data();
 
+int main()
+{
+    char user_input;
+    do{
+        cout << "Press 'h' if you want to create a hero," << endl;
+        cout << "Press 'l' if you want to see the list of all of the heroes." << endl;
+        cout << "Press 'q' if you want to quit." << endl;
+        cin >> user_input;
+        if(user_input == 'h')
+        {
+            Superhero hero;
+            cout << "Enter a hero name: ";
+            cin >> hero;
+            cout << hero;
+            hero.save_superhero(hero);
+            cout << endl;
+        }
+        else if(user_input == 'l')
+        {
+            ///hér kemur listinn sem tilheyrir öllum ofurhetjunum
+            get_data();
+            cout << endl;
+        }
+
+    }while(user_input != 'q');
+
+    return 0;
+}
+void get_data()///ifstream
+{
+    ifstream fin;
+    string strLine;
     fin.open("textfile.txt");
+    Superhero hero;
+    size_t pos = 0;
     if(fin.is_open())
     {
         while(!fin.eof())
         {
-            getline(fin, str);
-            cout << str << endl;
+            while(getline(fin,strLine))
+            {
+                ///bjoggi;45;h
+                ///finna staðsetningu á fyrstu ;
+                pos = strLine.find(';');
+                ///set nafnið frá fyrsta staki að ;
+                hero.set_name(strLine.substr(0, pos));
+                ///bjoggi
+                ///Eyði strengnum sem ég var að nota
+                strLine.erase(0, pos + 1);
+                ///45;h
+                pos = strLine.find(';');
+                ///45;h
+                ///c_str: innbyggt fall
+                ///atoi breytir streng í int
+                ///til að fá aldurinn
+                hero.set_age(atoi(strLine.c_str()));
+
+                strLine.erase(0, pos + 1);
+
+                pos = strLine.find(';');
+                ///þarf ekki að pæla í char hér afþví
+                ///það er búið að eyða fyrri partinnum af línunni
+                ///þá te
+                hero.set_power(strLine[0]);
+                cout << hero << endl ;
+            }
         }
         fin.close();
     }
+
 }
 
-
-int main()
-{
-    cout << "Enter hero: ";
-    createSomeHeroes();
-    cout << endl;
-
-    return 0;
-}

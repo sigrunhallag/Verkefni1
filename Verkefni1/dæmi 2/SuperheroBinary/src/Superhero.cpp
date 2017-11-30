@@ -1,4 +1,9 @@
 #include "Superhero.h"
+#include <iostream>
+#include <cstring>
+#include <fstream>
+using namespace std;
+
 
 Superhero::Superhero()
 {
@@ -61,4 +66,24 @@ istream& operator >> (istream& in, Superhero& superhero)
     in >> superhero.power;
 
     return in;
+}
+void Superhero::save_superhero(Superhero hero)
+{
+    ofstream fout;
+    fout.open("textfile.txt", ios::binary|ios::app);
+    if(fout.is_open())
+    {
+        fout.write((char*)(&hero), sizeof(Superhero));
+        fout << hero.name;
+        fout << hero.age;
+        fout << hero.power << endl;
+        fout.close();
+    }
+    /*ofstream fout;
+    fout.open("textfile.txt");
+    Superhero hero;
+    cin >> hero;
+    fout.open("textfile.txt", ios::binary|ios::app);
+    fout.write((char*)(&hero), sizeof(Superhero));
+    fout.close();*/
 }

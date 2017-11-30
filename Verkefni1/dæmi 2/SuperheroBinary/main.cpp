@@ -1,19 +1,22 @@
 #include <iostream>
 #include "Superhero.h"
 #include <fstream>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
-void createSomeHeroes()
+void get_data();
+int main()
 {
-    ofstream fout;
-    fout.open("textfile.txt");
-    Superhero data;
-    cin >> data;
-    fout.open("textfile.txt", ios::binary|ios::app);
-    fout.write((char*)(&data), sizeof(Superhero));
-    fout.close();
+    cout << "Create a new hero: ";
+    get_data();
+    cout << endl;
 
-    ///muna að gera ráð fyrir plássi '\0' aftast í strengnum
+    return 0;
+}
+void get_data()
+{
+    ///gera ráð fyrir plássi '\0' aftast í strengnum
 
     string str;
     ifstream fin;
@@ -29,13 +32,4 @@ void createSomeHeroes()
         fin.close();
     }
 
-}
-int main()
-{
-    cout << "Enter hero: ";
-    createSomeHeroes();
-
-    cout << endl;
-
-    return 0;
 }

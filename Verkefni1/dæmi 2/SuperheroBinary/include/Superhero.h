@@ -12,6 +12,7 @@ public:
     void set_name(string name);
     void set_age(int age);
     void set_power(char power);
+    void save_superhero(Superhero hero);
     friend ostream& operator << (ostream& out, const Superhero& superhero);
     friend istream& operator >> (istream& in, Superhero& superhero);
 
